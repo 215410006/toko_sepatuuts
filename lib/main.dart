@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
+// Kelas utama yang mewakili seluruh aplikasi.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -10,10 +11,12 @@ class MyApp extends StatelessWidget {
     const String appTitle = 'Toko Sepatu Riky';
     return MaterialApp(
       title: appTitle,
+      // Beranda aplikasi yang berisi struktur utama aplikasi.
       home: Scaffold(
         appBar: AppBar(
           title: const Text(appTitle),
-            actions: [
+          // Tombol pencarian di appbar.
+          actions: [
             IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
-        
+        // Isi dari aplikasi yang dapat di-scroll.
         body: const SingleChildScrollView(
           child: Column(
             children: [
@@ -38,12 +41,14 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        backgroundColor: Color.fromARGB(255, 225, 129, 129), // Background color
+        // Warna latar belakang aplikasi.
+        backgroundColor: Color.fromARGB(255, 225, 129, 129),
       ),
     );
   }
 }
 
+// Widget untuk bagian judul toko sepatu.
 class TitleSection extends StatelessWidget {
   const TitleSection({
     super.key,
@@ -93,6 +98,7 @@ class TitleSection extends StatelessWidget {
   }
 }
 
+// Widget untuk bagian tombol-tombol.
 class ButtonSection extends StatelessWidget {
   const ButtonSection({super.key});
 
@@ -124,6 +130,7 @@ class ButtonSection extends StatelessWidget {
   }
 }
 
+// Widget untuk tombol dengan ikon dan teks.
 class ButtonWithText extends StatelessWidget {
   const ButtonWithText({
     super.key,
@@ -159,26 +166,7 @@ class ButtonWithText extends StatelessWidget {
   }
 }
 
-class TextSection extends StatelessWidget {
-  const TextSection({
-    super.key,
-    required this.description,
-  });
-
-  final String description;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(32),
-      child: Text(
-        description,
-        softWrap: true,
-      ),
-    );
-  }
-}
-
+// Widget untuk bagian deskripsi.
 class EditTextSection extends StatefulWidget {
   const EditTextSection({super.key});
 
@@ -186,6 +174,7 @@ class EditTextSection extends StatefulWidget {
   State<EditTextSection> createState() => _EditTextSectionState();
 }
 
+// State untuk EditTextSection, mengelola teks yang akan disimpan.
 class _EditTextSectionState extends State<EditTextSection> {
   late TextEditingController _controller;
   late String _description;
@@ -204,6 +193,7 @@ class _EditTextSectionState extends State<EditTextSection> {
     super.dispose();
   }
 
+  // Metode untuk menyimpan teks yang diedit.
   void _saveText() {
     setState(() {
       _description = _controller.text;
@@ -240,6 +230,7 @@ class _EditTextSectionState extends State<EditTextSection> {
   }
 }
 
+// Widget untuk bagian gambar.
 class ImageSection extends StatelessWidget {
   const ImageSection({super.key, required this.image});
 
